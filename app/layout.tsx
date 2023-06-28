@@ -25,11 +25,7 @@ export default function RootLayout({
 				<SupabaseProvider>
 					<UserProvider>
 						<ModalProvider />
-						<Sidebar>
-							<main className="h-full flex-1 py-2 overflow-y-auto">
-								{children}
-							</main>
-						</Sidebar>
+						<Sidebar>{children}</Sidebar>
 					</UserProvider>
 				</SupabaseProvider>
 			</body>
