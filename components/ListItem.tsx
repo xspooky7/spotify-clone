@@ -1,8 +1,8 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { FaPlay } from 'react-icons/fa'
+import Link from 'next/link'
 
 interface ListItemProps {
 	name: string
@@ -11,15 +11,9 @@ interface ListItemProps {
 }
 
 const ListItem: React.FC<ListItemProps> = ({ name, image, href }) => {
-	const router = useRouter()
-
-	const onClick = () => {
-		// AUTH
-		router.push(href)
-	}
 	return (
-		<button
-			onClick={onClick}
+		<Link
+			href={href}
 			className="    
         relative
         group
@@ -55,7 +49,7 @@ const ListItem: React.FC<ListItemProps> = ({ name, image, href }) => {
 			>
 				<FaPlay className="text-black" />
 			</div>
-		</button>
+		</Link>
 	)
 }
 
