@@ -34,7 +34,6 @@ export async function POST(request: Request) {
 			],
 			mode: 'payment',
 			allow_promotion_codes: true,
-
 			success_url: `${getURL()}/account`,
 			cancel_url: `${getURL()}/`,
 		})

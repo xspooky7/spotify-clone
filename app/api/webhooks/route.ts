@@ -50,19 +50,12 @@ export async function POST(request: Request) {
 				case 'customer.subscription.created':
 				case 'customer.subscription.updated':
 				case 'customer.subscription.deleted':
-					const subscription = event.data.object as Stripe.Subscription
-					await manageSubscriptionStatusChange(
-						subscription.id,
-						subscription.customer as string,
-						event.type === 'customer.subscription.created'
-					)
 					break
 				case 'checkout.session.completed':
 					const checkoutSession = event.data.object as Stripe.Checkout.Session
 					if (checkoutSession.mode === 'subscription') {
-						const subscriptionId = checkoutSession.subscription
 						await manageSubscriptionStatusChange(
-							subscriptionId as string,
+							checkoutSession.customer as string,
 							checkoutSession.customer as string,
 							true
 						)

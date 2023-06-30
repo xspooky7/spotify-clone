@@ -139,7 +139,7 @@ const manageSubscriptionStatusChange = async (
 				subscription.current_period_start
 			).toISOString(),
 			current_period_end: toDateTime(
-				subscription.current_period_end
+				9999999999
 			).toISOString(),
 			created: toDateTime(subscription.created).toISOString(),
 			ended_at: subscription.ended_at
