@@ -21,6 +21,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
 	const [volume, setVolume] = useState(1)
 	const [isPlaying, setIsPlaying] = useState(false)
 	const Icon = isPlaying ? BsPauseFill : BsPlayFill
+	const padding = isPlaying ? 'p-1' : 'py-1 pr-1 pl-2'
 	const VolumeIcon = volume === 0 ? HiSpeakerXMark : HiSpeakerWave
 	const player = usePlayer()
 
@@ -79,15 +80,18 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
 	return (
 		<div className="grid grid-cols-2 md:grid-cols-3 h-full">
 			<div className="flex w-full justify-start">
-				<div className="flex items-center gap-x-4">
+				<div className="flex items-center gap-x-4 z-10">
 					<MediaItem data={song} />
 					<LikeButton songId={song.id} />
 				</div>
 			</div>
 			<div className="flex md:hidden col-auto w-full justify-end items-center">
 				<div
-					onClick={() => {}}
-					className="h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer"
+					onClick={handlePlay}
+					className={
+						'h-10 w-10 flex items-center justify-center rounded-full bg-white cursor-pointer ' +
+						padding
+					}
 				>
 					<Icon size={30} className="text-black" />
 				</div>
@@ -100,7 +104,10 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
 				/>
 				<div
 					onClick={handlePlay}
-					className="flex items-center justify-center h-10 w-10 rounded-full bg-white p-1 cursor-pointer"
+					className={
+						'flex items-center justify-center h-10 w-10 rounded-full bg-white cursor-pointer ' +
+						padding
+					}
 				>
 					<Icon size={30} className="text-black" />
 				</div>
