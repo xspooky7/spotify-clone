@@ -3,11 +3,11 @@ import { twMerge } from 'tailwind-merge'
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, children, type = 'button', disabled, ...props }, ref) => {
-		return (
-			<button
-				className={twMerge(
-					`
+  ({ className, children, type = 'button', disabled, ...props }, ref) => {
+    return (
+      <button
+        className={twMerge(
+          `
         w-full
         rounded-full
 		px-3
@@ -21,17 +21,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled:opacity-50
         hover:opacity-75
         transition`,
-					className
-				)}
-				type={type}
-				ref={ref}
-				disabled={disabled}
-				{...props}
-			>
-				{children}
-			</button>
-		)
-	}
+          className
+        )}
+        type={type}
+        ref={ref}
+        disabled={disabled}
+        {...props}
+      >
+        {children}
+      </button>
+    )
+  }
 )
-
+Button.displayName = 'Button'
 export default Button
