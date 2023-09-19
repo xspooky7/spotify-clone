@@ -1,5 +1,7 @@
 # Full Stack Spotify Clone with Next.js 13.4 App Router: React, Tailwind, Supabase, PostgreSQL, Stripe
 
+[<img src="https://github.com/xspooky7/spotify-clone/blob/main/public/preview.png"/>](https://spotify-clone-c-y7.vercel.app/)
+ 
 For DEMO, use [Stripe Testing Cards](https://stripe.com/docs/testing)
 
 ### Tech Stack
