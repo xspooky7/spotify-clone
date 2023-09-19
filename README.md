@@ -2,11 +2,13 @@
 
 For DEMO, use [Stripe Testing Cards](https://stripe.com/docs/testing)
 
-Tech Stack:
+### Tech Stack
 
-[![Tech Stack](https://skillicons.dev/icons?i=nextjs,react,tailwind,supabase,postgres,vercel&perline=3)](https://skillicons.dev)
+| [<img src="https://skillicons.dev/icons?i=nextjs" height="40px" width="40px"/>](https://nextjs.org/) |[<img src="https://skillicons.dev/icons?i=react" height="40px" width="40px"/>](https://react.dev/) | [<img src="https://skillicons.dev/icons?i=tailwind" height="40px" width="40px"/>](https://tailwindcss.com/) | [<img src="https://skillicons.dev/icons?i=supabase" height="40px" width="40px"/>](https://supabase.com/) | [<img src="https://skillicons.dev/icons?i=postgres" height="40px" width="40px"/>](https://www.postgresql.org/) | [<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/512px-Stripe_Logo%2C_revised_2016.svg.png" height="40px"/>](https://stripe.com/)|
+| :-------------: |:-------------:| :-----:|:-----:|:-----:|:-----:|
+| Next.js     | React | Tailwind | Supabase | PostgreSQL | Stripe |
 
-Key Features:
+### Key Features
 
 - Song upload
 - Stripe integration
