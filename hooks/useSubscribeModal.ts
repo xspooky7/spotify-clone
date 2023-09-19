@@ -7,7 +7,7 @@ interface SubscribeModalStore {
 }
 
 const useSubscribeModal = create<SubscribeModalStore>((set) => ({
-  isOpen: true,
+  isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
 }))
