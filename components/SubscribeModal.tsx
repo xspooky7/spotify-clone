@@ -1,24 +1,24 @@
-'use client'
+"use client"
 
-import React, { useState } from 'react'
-import { toast } from 'react-hot-toast'
+import React, { useState } from "react"
+import { toast } from "react-hot-toast"
 
-import useSubscribeModal from '@/hooks/useSubscribeModal'
-import { useUser } from '@/hooks/useUser'
-import { postData } from '@/libs/helpers'
-import { getStripe } from '@/libs/stripeClient'
-import { Price, ProductWithPrice } from '@/types'
+import useSubscribeModal from "@/hooks/useSubscribeModal"
+import { useUser } from "@/hooks/useUser"
+import { postData } from "@/libs/helpers"
+import { getStripe } from "@/libs/stripeClient"
+import { Price, ProductWithPrice } from "@/types"
 
-import Modal from './Modal'
-import Button from './Button'
+import Modal from "./Modal"
+import Button from "./Button"
 
 interface SubscribeModalProps {
   products: ProductWithPrice[]
 }
 
 const formatPrice = (price: Price) => {
-  const priceString = new Intl.NumberFormat('en-US', {
-    style: 'currency',
+  const priceString = new Intl.NumberFormat("en-US", {
+    style: "currency",
     currency: price.currency,
     minimumFractionDigits: 0,
   }).format((price?.unit_amount || 0) / 100)
@@ -42,17 +42,17 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({ products }) => {
     setPriceIdLoading(price.id)
     if (!user) {
       setPriceIdLoading(undefined)
-      return toast.error('Must be logged in')
+      return toast.error("Must be logged in")
     }
 
     if (subscription) {
       setPriceIdLoading(undefined)
-      return toast('Already subscribed')
+      return toast("Already subscribed")
     }
 
     try {
       const { sessionId } = await postData({
-        url: '/api/create-checkout-session',
+        url: "/api/create-checkout-session",
         data: { price },
       })
 
@@ -70,12 +70,12 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({ products }) => {
   if (products.length) {
     content = (
       <div>
-        {products.map(product => {
+        {products.map((product) => {
           if (!product.prices?.length) {
             return <div key={product.id}>No prices available</div>
           }
 
-          return product.prices.map(price => (
+          return product.prices.map((price) => (
             <Button
               key={price.id}
               onClick={() => handleCheckout(price)}
@@ -86,6 +86,16 @@ const SubscribeModal: React.FC<SubscribeModalProps> = ({ products }) => {
             </Button>
           ))
         })}
+        <p className="text-center text-xs text-neutral-500">
+          Use the{" "}
+          <a
+            className="text-neutral-400 underline hover:text-white"
+            href="https://imgur.com/a/ht5fkMM"
+            target="_blank"
+          >
+            stripe test card
+          </a>
+        </p>
       </div>
     )
   }
